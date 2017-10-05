@@ -1,2 +1,2 @@
 # Healty-Friend
-This is the repository for the final course in Telerik Academy - Mobile Applications
+This is the repository for the final course in Telerik Academy - Android Applications
