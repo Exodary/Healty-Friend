@@ -1,0 +1,54 @@
+package com.example.krasimir.fitness_friend.base.dagger;
+
+import com.example.krasimir.fitness_friend.CreateRecipe.CreateRecipeActivity;
+import com.example.krasimir.fitness_friend.CreateRecipe.CreateRecipeModule;
+import com.example.krasimir.fitness_friend.CreateRecipe.CreateRecipePresenter;
+import com.example.krasimir.fitness_friend.ListRecipes.ListRecipesActivity;
+import com.example.krasimir.fitness_friend.ListRecipes.ListRecipesModule;
+import com.example.krasimir.fitness_friend.NavMain.NavMainActivity;
+import com.example.krasimir.fitness_friend.RecipeDetails.RecipeDetailsActivity;
+import com.example.krasimir.fitness_friend.RecipeDetails.RecipeDetailsModule;
+import com.example.krasimir.fitness_friend.SignIn.SignInActivity;
+import com.example.krasimir.fitness_friend.SignIn.SignInModule;
+import com.example.krasimir.fitness_friend.SignUp.SignUpActivity;
+import com.example.krasimir.fitness_friend.SignUp.SignUpModule;
+import com.example.krasimir.fitness_friend.UserProfile.UserProfileActivity;
+import com.example.krasimir.fitness_friend.UserProfile.UserProfileModule;
+
+import dagger.Module;
+import dagger.android.ContributesAndroidInjector;
+
+/**
+ * Created by Krasimir on 10/10/2017.
+ */
+
+@Module
+public abstract class ActivityBindingModule {
+    @ActivityScoped
+    @ContributesAndroidInjector(modules = { })
+    abstract NavMainActivity NavMainActivity();
+
+    @ActivityScoped
+    @ContributesAndroidInjector(modules = {UserProfileModule.class})
+    abstract UserProfileActivity userProfileActivity();
+
+    @ActivityScoped
+    @ContributesAndroidInjector(modules = { SignInModule.class})
+    abstract SignInActivity signInActivity();
+
+    @ActivityScoped
+    @ContributesAndroidInjector(modules = {SignUpModule.class})
+    abstract SignUpActivity signUpActivity();
+
+    @ActivityScoped
+    @ContributesAndroidInjector(modules = {CreateRecipeModule.class})
+    abstract CreateRecipeActivity createRecipeActivity();
+
+    @ActivityScoped
+    @ContributesAndroidInjector(modules = {ListRecipesModule.class})
+    abstract ListRecipesActivity listRecipesActivity();
+
+    @ActivityScoped
+    @ContributesAndroidInjector(modules = {RecipeDetailsModule.class})
+    abstract RecipeDetailsActivity recipeDetailsActivity();
+}

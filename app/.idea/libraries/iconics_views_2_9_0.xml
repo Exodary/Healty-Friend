@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="iconics-views-2.9.0">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.android/build-cache/5ae473b5fd53175dd906a3a225948f6844ba525b/output/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.android/build-cache/5ae473b5fd53175dd906a3a225948f6844ba525b/output/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.mikepenz/iconics-views/2.9.0/afcf729b4a195e0b138e9ddb2e27177f73840e68/iconics-views-2.9.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

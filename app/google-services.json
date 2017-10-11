@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "556653315637",
+    "firebase_url": "https://fitness-friend-6cf4b.firebaseio.com",
+    "project_id": "fitness-friend-6cf4b",
+    "storage_bucket": "fitness-friend-6cf4b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:556653315637:android:8dcdb97ea37d208c",
+        "android_client_info": {
+          "package_name": "com.example.krasimir.fitness_friend"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "556653315637-q71et6e7h9plok6832260bt1ql1atvi7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCMYZivqEx3o1sZCG89nSOCUbP7EN84Sog"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

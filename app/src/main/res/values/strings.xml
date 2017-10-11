@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Fitness-Friend</string>
+    <string name="btn_sign_in">Sign in</string>
+    <string name="btn_sign_up">Sign up</string>
+    <string name="btn_sign_out">Sign Out</string>
+    <string name="btn_link_to_login">Already signed up? Sign in</string>
+    <string name="btn_link_to_register">Not signed up? Sign up now</string>
+
+    <string name="btn_change">Change</string>
+    <string name="btn_send">Send</string>
+    <string name="btn_change_email">Change Email</string>
+    <string name="btn_change_password">Change Password</string>
+    <string name="hint_old_password">Old password</string>
+
+    <!-- Hints -->
+    <string name="hint_email">Email</string>
+    <string name="hint_password">Password</string>
+    <string name="hint_new_email">New Email</string>
+    <string name="hint_new_pass">New Password</string>
+
+
+    <!-- Navigation items -->
+    <string name="nav_home">Home</string>
+    <string name="nav_profile">Profile</string>
+    <string name="nav_sign_in">Sign in</string>
+    <string name="nav_sign_up">Sign up</string>
+    <string name="nav_sign_out">Sign Out</string>
+
+    <string name="btn_create_recipe">Create Recipe</string>
+    <string name="hint_recipe_description">Recipe Description</string>
+    <string name="hint_recipe_name">Recipe Name</string>
+    <string name="hint_lastname">Last Name</string>
+    <string name="hint_firstname">First Name</string>
+    <string name="drawer_browse_recipes">Browse Recipes</string>
+    <string name="drawer_create_recipe">Create Recipe</string>
+    <string name="drawer_recipes_section">Recipes</string>
+    <string name="hint_recipe_servings">Servings</string>
+    <string name="hint_recipe_preparationTime">Preparation Time</string>
+    <string name="hint_recipe_cookingTime">Cooking Time</string>
+    <string name="hint_recipe_inredients">Ingredients</string>
+    <string name="hint_recipe_imageUrl">Image Link</string>
+    <string name="welcome_text">Welcome</string>
+
+
+</resources>
