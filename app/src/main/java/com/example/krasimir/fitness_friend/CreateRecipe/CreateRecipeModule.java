@@ -14,7 +14,7 @@ import dagger.Provides;
 @Module
 public class CreateRecipeModule {
     @Provides
-    CreateRecipeContracts.Presenter provideCreateEventPresenter(AuthenticationProvider authProvider, RemoteData<Recipe> data){
+    CreateRecipeContracts.Presenter provideCreateRecipePresenter(AuthenticationProvider authProvider, RemoteData<Recipe> data){
         return new CreateRecipePresenter(authProvider, data);
     }
 }

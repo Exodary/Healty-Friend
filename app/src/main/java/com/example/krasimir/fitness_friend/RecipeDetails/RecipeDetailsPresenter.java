@@ -14,7 +14,6 @@ class RecipeDetailsPresenter implements RecipeDetailsContracts.Presenter {
     private final AuthenticationProvider mAuthProvider;
     private final RemoteData<Recipe> mRemoteData;
     private Recipe mRecipe;
-    private String mRecipeId;
     private RecipeDetailsContracts.View mView;
 
     @Inject
@@ -36,11 +35,6 @@ class RecipeDetailsPresenter implements RecipeDetailsContracts.Presenter {
     @Override
     public void setRecipe(Recipe recipe){
         mRecipe = recipe;
-    }
-
-    @Override
-    public void setRecipeId(String recipeId){
-        mRecipeId = recipeId;
     }
 
     @Override

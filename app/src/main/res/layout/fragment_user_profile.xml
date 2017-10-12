@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.krasimir.fitness_friend.UserProfile.UserBasicProfileView">
+    tools:context="com.example.krasimir.fitness_friend.UserProfile.UserProfileView">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -51,12 +51,6 @@
             android:text="@string/btn_change"
             android:textColor="@android:color/white"
             android:textStyle="bold" />
-
-        <ProgressBar
-            android:id="@+id/progressBar"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:visibility="gone" />
 
         <Button
             android:id="@+id/change_email_button"

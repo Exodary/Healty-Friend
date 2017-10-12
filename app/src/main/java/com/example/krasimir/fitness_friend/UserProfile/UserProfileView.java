@@ -1,7 +1,6 @@
 package com.example.krasimir.fitness_friend.UserProfile;
 
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -12,25 +11,22 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.example.krasimir.fitness_friend.NavMain.NavMainActivity;
 import com.example.krasimir.fitness_friend.R;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class UserBasicProfileView extends Fragment implements UserProfileContracts.View {
+public class UserProfileView extends Fragment implements UserProfileContracts.View {
 
     private Button changeEmailBtnTrigger;
     private Button btnChangeEmail;
 
     private EditText newEmail;
-    private ProgressBar progressBar;
 
     private Button.OnClickListener btnChangeEmailListener = new Button.OnClickListener() {
         @Override
         public void onClick(View view) {
-            progressBar.setVisibility(View.VISIBLE);
             String email = newEmail.getText().toString();
             if (email.trim().equals("")) {
                 newEmail.setError("Enter email!");
@@ -53,12 +49,12 @@ public class UserBasicProfileView extends Fragment implements UserProfileContrac
     private TextView mDisplayName;
     private TextView mUserEmail;
 
-    public UserBasicProfileView() {
+    public UserProfileView() {
         // Required empty public constructor
     }
 
-    public static UserBasicProfileView newInstance() {
-        return new UserBasicProfileView();
+    public static UserProfileView newInstance() {
+        return new UserProfileView();
     }
 
     @Override
@@ -73,7 +69,7 @@ public class UserBasicProfileView extends Fragment implements UserProfileContrac
         String displayName = mPresenter.getUserDisplayName();
         String userEmail = mPresenter.getUserEmail();
 
-        View view = inflater.inflate(R.layout.fragment_user_basic_profile, container, false);
+        View view = inflater.inflate(R.layout.fragment_user_profile, container, false);
 
         mDisplayName = (TextView) view.findViewById(R.id.diplay_name);
         mUserEmail = (TextView) view.findViewById(R.id.user_email);
@@ -89,14 +85,12 @@ public class UserBasicProfileView extends Fragment implements UserProfileContrac
 
         newEmail = (EditText) view.findViewById(R.id.new_email);
 
-        progressBar = (ProgressBar) view.findViewById(R.id.progressBar);
-
-        setupUI();
+        emailChange();
 
         return view;
     }
 
-    public void setupUI() {
+    public void emailChange() {
         newEmail.setVisibility(View.GONE);
         btnChangeEmail.setVisibility(View.GONE);
     }

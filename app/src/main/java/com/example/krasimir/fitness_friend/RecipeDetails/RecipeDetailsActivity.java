@@ -26,7 +26,6 @@ public class RecipeDetailsActivity extends NavMainActivity {
 
         mRecipe = (Recipe) getIntent().getParcelableExtra("recipe_details");
         mRecipeDetailsPresenter.setRecipe(mRecipe);
-        mRecipeDetailsPresenter.setRecipeId(mRecipe.getId());
 
         mRecipeDetailsView.setPresenter(mRecipeDetailsPresenter);
 

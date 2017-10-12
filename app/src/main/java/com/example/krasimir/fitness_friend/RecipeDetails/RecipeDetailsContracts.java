@@ -16,8 +16,6 @@ public class RecipeDetailsContracts extends BaseContracts {
 
         void setRecipe(Recipe recipe);
 
-        void setRecipeId(String recipeId);
-
         Recipe getRecipe();
 
     }

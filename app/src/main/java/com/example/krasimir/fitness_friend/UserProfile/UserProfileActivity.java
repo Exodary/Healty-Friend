@@ -27,7 +27,7 @@ public class UserProfileActivity extends NavMainActivity {
     @Inject
     AuthenticationProvider mAuthProvider;
 
-    private UserBasicProfileView mUserBasicProfileView;
+    private UserProfileView mUserProfileView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,12 +37,12 @@ public class UserProfileActivity extends NavMainActivity {
 
         mPresenter.setAuth(mAuthProvider);
 
-                mUserBasicProfileView = UserBasicProfileView.newInstance();
-                mUserBasicProfileView.setPresenter(mPresenter);
+                mUserProfileView = UserProfileView.newInstance();
+                mUserProfileView.setPresenter(mPresenter);
 
                 getSupportFragmentManager()
                         .beginTransaction()
-                        .replace(R.id.content_container, mUserBasicProfileView)
+                        .replace(R.id.content_container, mUserProfileView)
                         .commit();
     }
 }

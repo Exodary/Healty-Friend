@@ -229,6 +229,7 @@ public class NavMainActivity extends DaggerAppCompatActivity {
                                     break;
                                 case 5:
                                     mAuthProvider.signOut();
+                                    mFragment = new HomeFragment();
                                     updateDrawer();
                                     break;
                             }

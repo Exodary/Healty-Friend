@@ -13,10 +13,10 @@ import javax.inject.Inject;
 
 public class CreateRecipeActivity extends NavMainActivity {
 
-    private CreateRecipeFragment mCreateEventView;
+    private CreateRecipeFragment mCreateRecipeView;
 
     @Inject
-    CreateRecipeContracts.Presenter mCreateEventPresenter;
+    CreateRecipeContracts.Presenter mCreateRecipePresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,19 +24,19 @@ public class CreateRecipeActivity extends NavMainActivity {
 
         setContentView(R.layout.activity_main);
 
-        mCreateEventView = CreateRecipeFragment.newInstance();
+        mCreateRecipeView = CreateRecipeFragment.newInstance();
 
-        mCreateEventView.setPresenter(mCreateEventPresenter);
+        mCreateRecipeView.setPresenter(mCreateRecipePresenter);
 
         getSupportFragmentManager()
                 .beginTransaction()
-                .replace(R.id.content_container, mCreateEventView)
+                .replace(R.id.content_container, mCreateRecipeView)
                 .commit();
     }
 
     @Override
     protected void onResume() {
-        mCreateEventView.setPresenter(mCreateEventPresenter);
+        mCreateRecipeView.setPresenter(mCreateRecipePresenter);
         super.onResume();
     }
 }

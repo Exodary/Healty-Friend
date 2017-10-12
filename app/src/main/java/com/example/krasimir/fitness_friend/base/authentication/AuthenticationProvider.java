@@ -140,8 +140,7 @@ public class AuthenticationProvider implements FirebaseAuth.AuthStateListener {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
-                            Toast.makeText(mContext, "Email address is updated. Please sign in with the new email address!", Toast.LENGTH_LONG).show();
-                            signOut();
+                            Toast.makeText(mContext, "Email address is updated", Toast.LENGTH_LONG).show();
                         } else {
                             Toast.makeText(mContext, "Failed to update email!", Toast.LENGTH_LONG).show();
                         }
