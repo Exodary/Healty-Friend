@@ -1,5 +1,7 @@
 package com.example.krasimir.fitness_friend.base.data;
 
+import com.example.krasimir.fitness_friend.base.models.Challange;
+import com.example.krasimir.fitness_friend.base.models.Exercise;
 import com.example.krasimir.fitness_friend.base.models.Recipe;
 
 import javax.inject.Named;
@@ -15,8 +17,17 @@ import dagger.Provides;
 public class DataModule {
 
     @Provides
-    @Named("remote")
     BaseData<Recipe> provideRemoteRecipesData() {
-        return new RemoteData<>();
+        return new RemoteRecipesData<>();
+    }
+
+    @Provides
+    BaseData<Exercise> provideRemoteExercisesData() {
+        return new RemoteExercisesData<>();
+    }
+
+    @Provides
+    BaseData<Challange> provideRemoteChallangesData() {
+        return new RemoteChallangesData<>();
     }
 }

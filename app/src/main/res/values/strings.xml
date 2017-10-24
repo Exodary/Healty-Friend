@@ -41,6 +41,11 @@
     <string name="hint_recipe_inredients">Ingredients</string>
     <string name="hint_recipe_imageUrl">Image Link</string>
     <string name="welcome_text">Welcome</string>
+    <string name="nav_location">Locations</string>
+    <string name="nav_exercises">Exercises</string>
+    <string name="nav_challanges">Challanges</string>
+    <string name="see_exercises">Check the exercises</string>
+    <string name="hint_recipe_callories">Callories</string>
 
 
 </resources>

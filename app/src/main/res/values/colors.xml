@@ -7,4 +7,7 @@
     <color name="colorText">#ffffff</color>
     <color name="cardText">#424242</color>
     <color name="headerBackground">#3366ff</color>
+    <color name="cardBackground">#BCD4E6</color>
+    <color name="detailsBackground">#ADD8E6</color>
+    <color name="exerciseButton">#1E90FF</color>
 </resources>

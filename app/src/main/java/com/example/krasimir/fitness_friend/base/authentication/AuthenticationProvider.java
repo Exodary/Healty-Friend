@@ -42,6 +42,10 @@ public class AuthenticationProvider implements FirebaseAuth.AuthStateListener {
         mAuth.addAuthStateListener(this);
     }
 
+    public FirebaseAuth getFirebaseInstance() {
+        return mAuth;
+    }
+
     public void setActivity(Activity activity) {
         mActivity = activity;
     }
@@ -55,6 +59,10 @@ public class AuthenticationProvider implements FirebaseAuth.AuthStateListener {
     }
 
     public String getUserEmail() { return mAuth.getCurrentUser().getEmail();}
+
+    public String getUserId() {
+        return mAuth.getCurrentUser().getUid();
+    }
 
     public Observable<Boolean> updateProfile(final String displayName) {
         return Observable.create(new ObservableOnSubscribe<Boolean>() {
@@ -140,7 +148,8 @@ public class AuthenticationProvider implements FirebaseAuth.AuthStateListener {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
-                            Toast.makeText(mContext, "Email address is updated", Toast.LENGTH_LONG).show();
+                            Toast.makeText(mContext, "Email address is updated. Please sign in with the new email address!", Toast.LENGTH_LONG).show();
+                            signOut();
                         } else {
                             Toast.makeText(mContext, "Failed to update email!", Toast.LENGTH_LONG).show();
                         }

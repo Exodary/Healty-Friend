@@ -1,0 +1,72 @@
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/detailsBackground">
+
+    <android.support.v7.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/detailsBackground"
+        tools:context="com.example.krasimir.fitness_friend.Challanges.ChallangesDetails.ChallangeDetailsActivity">
+
+        <TextView
+            android:id="@+id/challange_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textStyle="bold"
+            android:textSize="30dp"/>
+
+        <android.support.v7.widget.LinearLayoutCompat
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/challange_image"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/challange_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:background="@color/detailsBackground"
+                android:gravity="center"/>
+
+            <TextView
+                android:id="@+id/challange_exercises"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:paddingTop="5dp"
+                android:textSize="22dp" />
+
+            <TextView
+                android:id="@+id/challange_repetition"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textSize="20dp"/>
+
+            <Button
+                style="@style/Base.TextAppearance.AppCompat.Widget.Button.Colored"
+                android:background="@color/exerciseButton"
+                android:id="@+id/challange_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18dp"
+                android:layout_marginTop="5dp"
+                android:text="@string/see_exercises"/>
+
+        </android.support.v7.widget.LinearLayoutCompat>
+
+    </android.support.v7.widget.LinearLayoutCompat>
+</ScrollView>

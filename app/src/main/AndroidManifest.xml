@@ -2,16 +2,36 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.krasimir.fitness_friend">
 
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <permission
+        android:name="com.example.krasimir.fitness_friend.permission.MAPS_RECEIVE"
+        android:protectionLevel="signature" />
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="com.example.krasimir.fitness_friend.permission.MAPS_RECEIVE" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+
+    <uses-library android:name="com.google.android.maps" />
 
     <application
+        android:name=".FitnessFriendApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_round_launcher"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
-        android:name=".FitnessFriendApplication">
+        android:theme="@style/AppTheme">
         <activity android:name=".NavMain.NavMainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,13 +39,35 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity android:name=".SignIn.SignInActivity" />
         <activity android:name=".SignUp.SignUpActivity" />
         <activity android:name=".UserProfile.UserProfileActivity" />
-        <activity android:name=".RecipeDetails.RecipeDetailsActivity" />
-        <activity android:name=".CreateRecipe.CreateRecipeActivity" />
-        <activity android:name=".ListRecipes.ListRecipesActivity"></activity>
+        <activity android:name=".Recipes.RecipeDetails.RecipeDetailsActivity" />
+        <activity android:name=".Recipes.CreateRecipe.CreateRecipeActivity" />
+        <activity android:name=".Recipes.ListRecipes.ListRecipesActivity" />
+        <activity android:name=".GoogleMaps.MapsActivity" />
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.example.krasimir.fitness_friend.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyA1FrnmXkkkh0gIxuHd2BKBo3dOxN2RbAs" />
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+        <activity android:name=".Exercises.ListExercises.ListExercises.ListExercisesActivity" />
+        <activity android:name=".Exercises.ListExercises.ExercisesDetails.ExerciseDetailsActivity" />
+        <activity android:name=".Challanges.ChallangesDetails.ChallangeDetailsActivity" />
+        <activity android:name=".Challanges.ListChallanges.ListChallangesActivity"></activity>
     </application>
 
 </manifest>

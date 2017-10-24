@@ -15,13 +15,14 @@ import com.example.krasimir.fitness_friend.NavMain.NavMainActivity;
 import com.example.krasimir.fitness_friend.R;
 import com.example.krasimir.fitness_friend.SignIn.SignInActivity;
 import com.example.krasimir.fitness_friend.UserProfile.UserProfileActivity;
+import com.example.krasimir.fitness_friend.base.utils.LoadingIndicator;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 
 
-public class SignUpView extends Fragment implements SignUpContracts.View {
+public class SignUpView extends Fragment implements SignUpContracts.View, LoadingIndicator.LoadingView {
 
     private Button mBtnSignIn;
     private Button mBtnSignUp;
@@ -57,7 +58,7 @@ public class SignUpView extends Fragment implements SignUpContracts.View {
             } else if (password.length() < 6) {
                 mInputPassword.setError("Password too short, enter minimum 6 characters!");
             } else {
-                mProgressBar.setVisibility(View.VISIBLE);
+                showLoading();
 
                 mPresenter
                         .signUpWithEmail(email, password, displayName)
@@ -136,5 +137,25 @@ public class SignUpView extends Fragment implements SignUpContracts.View {
     @Override
     public void setPresenter(SignUpContracts.Presenter presenter) {
         mPresenter = presenter;
+    }
+
+    @Override
+    public View getContentContainer() {
+        return getView().findViewById(R.id.content_container);
+    }
+
+    @Override
+    public ViewGroup getLoadingContainer() {
+        return getView().findViewById(R.id.loading_container);
+    }
+
+    @Override
+    public void showLoading() {
+        LoadingIndicator.showLoadingIndicator(SignUpView.this);
+    }
+
+    @Override
+    public void hideLoading() {
+        LoadingIndicator.hideLoadingIndicator(SignUpView.this);
     }
 }

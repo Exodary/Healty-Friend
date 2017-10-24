@@ -1,13 +1,20 @@
 package com.example.krasimir.fitness_friend.base.dagger;
 
-import com.example.krasimir.fitness_friend.CreateRecipe.CreateRecipeActivity;
-import com.example.krasimir.fitness_friend.CreateRecipe.CreateRecipeModule;
-import com.example.krasimir.fitness_friend.CreateRecipe.CreateRecipePresenter;
-import com.example.krasimir.fitness_friend.ListRecipes.ListRecipesActivity;
-import com.example.krasimir.fitness_friend.ListRecipes.ListRecipesModule;
+import com.example.krasimir.fitness_friend.Challanges.ChallangesDetails.ChallangeDetailsActivity;
+import com.example.krasimir.fitness_friend.Challanges.ChallangesDetails.ChallangeDetailsModule;
+import com.example.krasimir.fitness_friend.Challanges.ListChallanges.ListChallangesActivity;
+import com.example.krasimir.fitness_friend.Challanges.ListChallanges.ListChallangesModule;
+import com.example.krasimir.fitness_friend.Recipes.CreateRecipe.CreateRecipeActivity;
+import com.example.krasimir.fitness_friend.Recipes.CreateRecipe.CreateRecipeModule;
+import com.example.krasimir.fitness_friend.Exercises.ListExercises.ExercisesDetails.ExerciseDetailsActivity;
+import com.example.krasimir.fitness_friend.Exercises.ListExercises.ExercisesDetails.ExerciseDetailsModule;
+import com.example.krasimir.fitness_friend.Exercises.ListExercises.ListExercises.ListExercisesActivity;
+import com.example.krasimir.fitness_friend.Exercises.ListExercises.ListExercises.ListExercisesModule;
+import com.example.krasimir.fitness_friend.Recipes.ListRecipes.ListRecipesActivity;
+import com.example.krasimir.fitness_friend.Recipes.ListRecipes.ListRecipesModule;
 import com.example.krasimir.fitness_friend.NavMain.NavMainActivity;
-import com.example.krasimir.fitness_friend.RecipeDetails.RecipeDetailsActivity;
-import com.example.krasimir.fitness_friend.RecipeDetails.RecipeDetailsModule;
+import com.example.krasimir.fitness_friend.Recipes.RecipeDetails.RecipeDetailsActivity;
+import com.example.krasimir.fitness_friend.Recipes.RecipeDetails.RecipeDetailsModule;
 import com.example.krasimir.fitness_friend.SignIn.SignInActivity;
 import com.example.krasimir.fitness_friend.SignIn.SignInModule;
 import com.example.krasimir.fitness_friend.SignUp.SignUpActivity;
@@ -51,4 +58,20 @@ public abstract class ActivityBindingModule {
     @ActivityScoped
     @ContributesAndroidInjector(modules = {RecipeDetailsModule.class})
     abstract RecipeDetailsActivity recipeDetailsActivity();
+
+    @ActivityScoped
+    @ContributesAndroidInjector(modules = {ListExercisesModule.class})
+    abstract ListExercisesActivity listExercisesActivity();
+
+    @ActivityScoped
+    @ContributesAndroidInjector(modules = {ExerciseDetailsModule.class})
+    abstract ExerciseDetailsActivity exerciseDetailsActivity();
+
+    @ActivityScoped
+    @ContributesAndroidInjector(modules = {ListChallangesModule.class})
+    abstract ListChallangesActivity listChallangesActivity();
+
+    @ActivityScoped
+    @ContributesAndroidInjector(modules = {ChallangeDetailsModule.class})
+    abstract ChallangeDetailsActivity challangeDetailsActivity();
 }

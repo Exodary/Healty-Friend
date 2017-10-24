@@ -17,6 +17,7 @@ public class Recipe implements Parcelable {
     private String preparationTime;
     private String servings;
     private String imageUrl;
+    private String callories;
 
     public Recipe(){
 
@@ -31,6 +32,7 @@ public class Recipe implements Parcelable {
         preparationTime = in.readString();
         servings = in.readString();
         imageUrl = in.readString();
+        callories = in.readString();
     }
 
     @Override
@@ -43,6 +45,7 @@ public class Recipe implements Parcelable {
         out.writeString(preparationTime);
         out.writeString(servings);
         out.writeString(imageUrl);
+        out.writeString(callories);
     }
 
     public static final Parcelable.Creator<Recipe> CREATOR = new Parcelable.Creator<Recipe>(){
@@ -55,7 +58,7 @@ public class Recipe implements Parcelable {
     };
 
     public Recipe(String id, String name, String description, String ingredients,  String cookingTime ,
-                  String preparationTime, String servings, String imageUrl) {
+                  String preparationTime, String servings, String imageUrl, String callories) {
         setId(id);
         setName(name);
         setDescription(description);
@@ -64,6 +67,7 @@ public class Recipe implements Parcelable {
         setServings(servings);
         setPreparationTime(preparationTime);
         setImageUrl(imageUrl);
+        setCallories(callories);
 
     }
 
@@ -113,6 +117,14 @@ public class Recipe implements Parcelable {
 
     public void setPreparationTime(String preparationTime) {
         this.preparationTime = preparationTime;
+    }
+
+    public String getCallories() {
+        return this.callories;
+    }
+
+    public void setCallories(String callories) {
+        this.callories = callories;
     }
 
     @Override

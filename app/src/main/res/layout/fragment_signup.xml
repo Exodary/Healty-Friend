@@ -4,7 +4,19 @@
     android:layout_height="match_parent"
     tools:context="com.example.krasimir.fitness_friend.SignUp.SignUpActivity">
 
-    <LinearLayout
+    <android.support.v7.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/loading_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:orientation="vertical">
+
+    </android.support.v7.widget.LinearLayoutCompat>
+
+    <android.support.v7.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/content_container"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:gravity="center"
@@ -103,7 +115,7 @@
             android:text="@string/btn_link_to_login"
             android:textAllCaps="false"/>
 
-    </LinearLayout>
+    </android.support.v7.widget.LinearLayoutCompat>
 
     <ProgressBar
         android:id="@+id/progressBar"

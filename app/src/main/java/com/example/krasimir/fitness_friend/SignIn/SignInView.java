@@ -4,6 +4,7 @@ package com.example.krasimir.fitness_friend.SignIn;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,7 @@ import android.widget.ProgressBar;
 import com.example.krasimir.fitness_friend.NavMain.NavMainActivity;
 import com.example.krasimir.fitness_friend.R;
 import com.example.krasimir.fitness_friend.SignUp.SignUpActivity;
+import com.example.krasimir.fitness_friend.base.utils.LoadingIndicator;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.functions.Consumer;
@@ -22,7 +24,7 @@ import io.reactivex.schedulers.Schedulers;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class SignInView extends Fragment implements SignInContracts.View {
+public class SignInView extends Fragment implements SignInContracts.View,LoadingIndicator.LoadingView {
 
     private SignInContracts.Presenter mPresenter;
 
@@ -32,39 +34,45 @@ public class SignInView extends Fragment implements SignInContracts.View {
     private EditText mInputEmail;
     private EditText mInputPassword;
 
-    private ProgressBar mProgressBar;
-
     private Button.OnClickListener mBtnSignInListener = new Button.OnClickListener() {
         @Override
         public void onClick(View view) {
             String email = mInputEmail.getText().toString().trim();
             String password = mInputPassword.getText().toString().trim();
 
-            mProgressBar.setVisibility(View.VISIBLE);
+            if (TextUtils.isEmpty(email)) {
+                mInputEmail.setError("Enter email address!");
+            } else if (TextUtils.isEmpty(password)) {
+                mInputPassword.setError("Enter password!");
+            } else if (password.length() < 6) {
+                mInputPassword.setError("Password too short, enter minimum 6 characters!");
+            } else {
+                showLoading();
 
-            mPresenter.signInWithEmail(email, password)
-                    .subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe(new Consumer<Boolean>() {
-                        @Override
-                        public void accept(Boolean isSuccessful) throws Exception {
-                            if(isSuccessful){
-                                Intent intent = new Intent(getActivity(), NavMainActivity.class);
-                                startActivity(intent);
+                mPresenter.signInWithEmail(email, password)
+                        .subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe(new Consumer<Boolean>() {
+                            @Override
+                            public void accept(Boolean isSuccessful) throws Exception {
+                                if (isSuccessful) {
+                                    Intent intent = new Intent(getActivity(), NavMainActivity.class);
+                                    startActivity(intent);
+                                } else {
+                                    Intent intent = new Intent(getActivity(), SignInActivity.class);
+                                    startActivity(intent);
+                                }
                             }
-                            else{
-                                Intent intent = new Intent(getActivity(), SignInActivity.class);
-                                startActivity(intent);
+                        }, new Consumer<Throwable>() {
+                            @Override
+                            public void accept(Throwable throwable) throws Exception {
+                                throwable.printStackTrace();
                             }
-                        }
-                    }, new Consumer<Throwable>() {
-                        @Override
-                        public void accept(Throwable throwable) throws Exception {
-                            throwable.printStackTrace();
-                        }
-                    });
+                        });
+            }
         }
     };
+
 
 
     private Button.OnClickListener mBtnSignUpListener = new Button.OnClickListener() {
@@ -96,8 +104,6 @@ public class SignInView extends Fragment implements SignInContracts.View {
 
         mBtnSignUp = (Button) view.findViewById(R.id.btn_sign_up);
 
-        mProgressBar = (ProgressBar) view.findViewById(R.id.progressBar);
-
         mBtnSignUp.setOnClickListener(mBtnSignUpListener);
 
         return view;
@@ -125,5 +131,25 @@ public class SignInView extends Fragment implements SignInContracts.View {
         super.onDestroy();
         mPresenter.unsubscribe();
         mPresenter = null;
+    }
+
+    @Override
+    public View getContentContainer() {
+        return getView().findViewById(R.id.content_container);
+    }
+
+    @Override
+    public ViewGroup getLoadingContainer() {
+      return getView().findViewById(R.id.loading_container);
+    }
+
+    @Override
+    public void showLoading() {
+    LoadingIndicator.showLoadingIndicator(SignInView.this);
+    }
+
+    @Override
+    public void hideLoading() {
+    LoadingIndicator.hideLoadingIndicator(SignInView.this);
     }
 }
